@@ -1,0 +1,15 @@
+baseURL = 'https://ogreload3d.github.io/'
+locale = 'en-us'
+title = "ogreload3d's cool page"
+
+[params]
+  author = "ogreload3d"
+  theme = 'light-pink'
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
