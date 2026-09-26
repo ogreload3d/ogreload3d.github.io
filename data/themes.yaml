@@ -71,7 +71,7 @@
     # type: "+ "
 
 - name: "light-pink"
-  site-bg: "/black-flowertile.png"
+  site-bg: "/flowertile.png"
   accent-color: "#ff5a5f"
   select-color: "#f9b0b4"
   link-color: "#d03f3f"

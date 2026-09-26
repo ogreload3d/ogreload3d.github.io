@@ -261,12 +261,10 @@ a:hover {
 
 #avatar {
     margin: .5em;
-    max-width: 320px;
 }
 
-/*flower shape generated from here: https://css-generators.com/flower-shapes/ */
 .flower {
-    width: 300px; 
+    width: 100%; 
     aspect-ratio: 1;
     {{ with .Site.GetPage "section" "/sidebar/_index.md" }}
     {{ if index .Params "icon-use-flower-shape" }}
