@@ -108,7 +108,10 @@
             {{ with index $page.Params "title-images" }}
             <div class="photosetx2">
                 {{ range first 2 . }}
-                <a href="{{ . }}" target="_blank"><img src="{{ . }}"></a>
+                {{ $img := $page.Resources.GetMatch . }}
+                {{ if $img }}
+                    <a href="{{ $img.RelPermalink }}" target="_blank"><img src="{{ $img.RelPermalink }}"></a>
+                {{ end }}
                 {{ end }}
             </div>
             {{ end }}
