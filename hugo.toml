@@ -2,6 +2,8 @@ baseURL = 'https://ogreload3d.github.io/'
 locale = 'en-us'
 title = "ogreload3d's cool page"
 
+disableKinds = ["sitemap"]
+
 [params]
   author = "ogreload3d"
   theme = 'light-pink'
