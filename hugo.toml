@@ -3,14 +3,16 @@ locale = 'en-us'
 title = "ogreload3d's cool page"
 
 disableKinds = ["sitemap"]
+summaryLength = 1
 
 [params]
   author = "ogreload3d"
   theme = 'light-pink'
-
-[params.read-more.text]
-more = "Read more"
-less = "Read less"
+  [params.read-more]
+    length-limit = 0
+    [params.read-more.text]
+      more = "Read more"
+      less = "Read less"
 
 [taxonomies]
   category = 'categories'
