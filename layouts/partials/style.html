@@ -252,7 +252,7 @@ a:hover {
 }
 
 .small-box {
-    max-width: 240px;
+    max-width: 75%;
     margin: auto;
     border: 2px solid var(--bg-color);
     font-size: 11px;
@@ -277,15 +277,14 @@ a:hover {
 }
 
 #bio {
-    margin: 20px;
-    padding: .2em;
+    margin: 1em;
     background: var(--bg-color);
     border: 4px double var(--bg-color2);
     border-radius: 2em;
     font-size: small;
 }
 
-#bio p { margin: 1em; }
+#bio p { margin: 2em; }
 
 #content {
     display: flex;
@@ -525,7 +524,7 @@ header h1 a:hover {
         flex-wrap: wrap;
         flex-direction: row;
     }
-    #bio {width: 50%;}
+    #bio {width: 75%;}
     
     #sidebar ul {
         line-height: 2em;
@@ -551,6 +550,11 @@ pre {
     border-radius:6px;
     padding:0.75rem 1rem;
     margin:1.2rem 0;
-    overflow-x:auto;  
+    overflow-x:auto;
+}
+
+pre code {
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 </style>

@@ -28,37 +28,34 @@ Well, with the Pihole, this problem will be gone, as long as you set it up all n
 
 The way it works is that you tell the router to get DNS info from the raspberry pi, and raspberry pi (the pihole) will then do it all.
 
-The setup process is actually VERY easy:
+[The setup process is actually VERY easy](https://www.reddit.com/r/pihole/comments/18bz80p/comment/kc7jy74)
 
-https://www.reddit.com/r/pihole/comments/18bz80p/comment/kc7jy74
 
-```
-Things you need: Pi with an ethernet port (recommended), Memory card, card reader, ethernet cable, and Pi power supply (you can also use old phone chargers as long as the voltage/wattage is fine).
+>Things you need: Pi with an ethernet port (recommended), Memory card, card reader, ethernet cable, and Pi power supply (you can also use old phone chargers as long as the voltage/wattage is fine).
 
-Or if you keep your PC on all the time then You can go the docker path. Idk how different it is. Here's how I setup mine on a Pi4B:
+>Or if you keep your PC on all the time then You can go the docker path. Idk how different it is. Here's how I setup mine on a Pi4B:
 
-Install Pi Imager from official website
+>Install Pi Imager from official website
 
-Install RPi OS Lite on the memory card, set a username and password during installation alongside other settings like wifi, keyboard layout etc.
+>Install RPi OS Lite on the memory card, set a username and password during installation alongside other settings like wifi, keyboard layout etc.
 
-Insert card in Pi and connect it to your router and check what IP was assigned to. Also set that IP as static so that it never changes.
+>Insert card in Pi and connect it to your router and check what IP was assigned to. Also set that IP as static so that it never changes.
 
-SSH using that IP by opening cmd.exe (Windows machine) and typing "username@ip" (replace username with the one you set and IP with the one your router assigned it.
+>SSH using that IP by opening cmd.exe (Windows machine) and typing "username@ip" (replace username with the one you set and IP with the one your router assigned it.
 
-run "sudo apt update && sudo apt upgrade -y" command once you login to your Pi. This will update and apply all the settings.
+>run "sudo apt update && sudo apt upgrade -y" command once you login to your Pi. This will update and apply all the settings.
 
-Install Pi-hole using the command on their website.
+>Install Pi-hole using the command on their website.
 
-Keep pressing yes/continue. If you're asked to select DNS upstream, select Cloudflare (recommended) but you're free to use Google or anything else. In the end you will be greeted with installation complete and a password for yout Pi-Hole interface. Change it if you want to by running "sudo pihole -a -p" command
+>Keep pressing yes/continue. If you're asked to select DNS upstream, select Cloudflare (recommended) but you're free to use Google or anything else. In the end you will be greeted with installation complete and a password for yout Pi-Hole interface. Change it if you want to by running "sudo pihole -a -p" command
 
-Login to your router and go to something similar to DHCP settings (It is different for different routers, never used Sagemcom).
+>Login to your router and go to something similar to DHCP settings (It is different for different routers, never used Sagemcom).
 
-Assign "Primary DNS" as your Pi-Hole's IP.
+>Assign "Primary DNS" as your Pi-Hole's IP.
 
-Reconnect all the devices.
+>Reconnect all the devices.
 
-This is just a TL;DR version that should get you up and running. Things like keeping piOS and pihole updated, the blocklists updated, adding more, using other features are covered in the docs.
-```
+>This is just a TL;DR version that should get you up and running. Things like keeping piOS and pihole updated, the blocklists updated, adding more, using other features are covered in the docs.
 
 Unbelievably, once I had it all set up, I would no longer see any ads on the recipe sites. Amazing!
 

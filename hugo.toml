@@ -8,6 +8,10 @@ disableKinds = ["sitemap"]
   author = "ogreload3d"
   theme = 'light-pink'
 
+[params.read-more.text]
+more = "Read more"
+less = "Read less"
+
 [taxonomies]
   category = 'categories'
   tag = 'tags'
