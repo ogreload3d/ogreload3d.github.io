@@ -88,7 +88,7 @@
             const SECTION = 54;
             const INTRO = 6;
             const BPM = 72;
-            const MAX_INSTRUMENTS = isMobile ? 4 : 12;
+            const MAX_INSTRUMENTS = 12;
             const beat = () => 60 / BPM, hz = n => 440 * Math.pow(2, (n - 69) / 12);
             let audio = null, master = null, noiseBuffer = null, playing = false, sectionNo = 0, timer = null;
             const gate = document.getElementById('gate'), status = document.getElementById('status');
@@ -168,7 +168,7 @@
             }
             function newArrangement() {
                 const ids = shuffle(Object.keys(sounds).slice());
-                const count = 3 + Math.floor(Math.random() * (MAX_INSTRUMENTS - 2)); // 3 through 12, at least one per part
+                const count = isMobile ? 3 : (3 + Math.floor(Math.random() * (MAX_INSTRUMENTS - 2))); // mobile phones so weak. 3 instruments max, 12 otherwise.
                 arrangementCount = count;
                 const chosen = ids.slice(0, count);
                 const parts = {melody: [chosen[0]], accomp: [chosen[1]], snare: [chosen[2]]};
