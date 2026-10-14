@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Infinite Boléro</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            background: #050507;
+            color: #d8d4ca;
+            font: 14px/1.4 system-ui, sans-serif
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            overflow: hidden
+        }
+
+        #gate {
+            position: fixed;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            cursor: pointer;
+            background: #050507;
+            transition: opacity .8s
+        }
+
+        #gate.hidden {
+            opacity: 0;
+            pointer-events: none
+        }
+
+        #gate div {
+            padding: 24px
+        }
+
+        #gate h1 {
+            font-size: clamp(22px, 5vw, 42px);
+            letter-spacing: .08em;
+            font-weight: 500;
+            margin: 0 0 12px
+        }
+
+        #gate p {
+            opacity: .6;
+            margin: 0
+        }
+
+        #status {
+            position: fixed;
+            text-align: center;
+            color: #777;
+            font-size: 11px;
+            letter-spacing: .12em;
+            pointer-events: none
+        }
+    </style>
+</head>
+
+<body>
+    <div id="gate">
+        <div>
+            <h1>INFINITE BOLÉRO</h1>
+            <p>Click / tap here.</p>
+            <p>After that, it runs forever.</p>
+        </div>
+    </div>
+    <div id="status"></div>
+    <script>
+        (() => {
+            'use strict';
+            const A = [[0.0, 1.4229, 72, 112], [1.5, 0.2354, 71, 112], [1.75, 0.2354, 72, 112], [2.0, 0.2354, 74, 112], [2.25, 0.2354, 72, 112], [2.5, 0.2354, 71, 112], [2.75, 0.2354, 69, 112], [3.0, 0.4729, 72, 112], [3.5, 0.2479, 72, 112], [3.75, 0.2479, 69, 112], [4.0, 1.4979, 72, 112], [5.5, 0.2479, 71, 112], [5.75, 0.2479, 72, 112], [6.0, 0.2479, 69, 112], [6.25, 0.2479, 67, 112], [6.5, 0.2479, 64, 112], [6.75, 0.2479, 65, 112], [7.0, 2.2354, 67, 112], [9.25, 0.2354, 65, 112], [9.5, 0.2354, 64, 112], [9.75, 0.2354, 62, 112], [10.0, 0.2354, 64, 112], [10.25, 0.2354, 65, 112], [10.5, 0.2354, 67, 112], [10.75, 0.2354, 69, 112], [11.0, 2.1354, 67, 112], [13.25, 0.2354, 69, 112], [13.5, 0.2354, 71, 112], [13.75, 0.2354, 69, 112], [14.0, 0.2354, 67, 112], [14.25, 0.2354, 65, 112], [14.5, 0.2354, 64, 112], [14.75, 0.2354, 62, 112], [15.0, 0.2479, 64, 112], [15.25, 0.2479, 62, 112], [15.5, 0.9729, 60, 112], [16.5, 0.2479, 60, 112], [16.75, 0.2479, 62, 112], [17.0, 0.3313, 64, 112], [17.5, 0.3313, 65, 112], [18.0, 0.9979, 62, 112], [19.0, 4.4729, 67, 112], [24.0, 1.7479, 74, 112], [25.75, 0.2479, 72, 112], [26.0, 0.2479, 71, 112], [26.25, 0.2479, 69, 112], [26.5, 0.2479, 71, 112], [26.75, 0.2354, 72, 112], [27.0, 0.2479, 74, 112], [27.25, 0.2479, 72, 112], [27.5, 0.7479, 71, 112], [28.25, 0.2479, 72, 112], [28.5, 0.2479, 71, 112], [28.75, 0.2354, 69, 112], [29.0, 0.2354, 72, 112], [29.25, 0.2354, 71, 112], [29.5, 0.2354, 69, 112], [29.75, 0.7104, 65, 112], [30.5, 0.1229, 65, 112], [30.75, 0.1229, 65, 112], [31.0, 0.2479, 65, 112], [31.5, 0.2479, 69, 112], [32.0, 0.2479, 72, 112], [32.25, 0.2479, 69, 112], [32.5, 0.2479, 71, 112], [32.75, 0.2479, 67, 112], [33.0, 0.4729, 65, 112], [33.5, 0.1229, 65, 112], [33.75, 0.1229, 65, 112], [34.0, 0.2479, 65, 112], [34.5, 0.2479, 69, 112], [35.0, 0.2479, 71, 112], [35.25, 0.2479, 67, 112], [35.5, 0.2479, 69, 112], [35.75, 0.2479, 65, 112], [36.0, 0.4979, 62, 112], [36.5, 0.2479, 62, 112], [36.75, 0.2479, 60, 112], [37.0, 1.4729, 62, 112], [38.5, 0.1229, 62, 112], [38.75, 0.1229, 62, 112], [39.0, 0.2479, 62, 112], [39.5, 0.2479, 65, 112], [40.0, 0.2479, 69, 112], [40.25, 0.2479, 65, 112], [40.5, 0.2479, 67, 112], [40.75, 0.2479, 64, 112], [41.0, 0.4729, 62, 112], [41.5, 0.2479, 62, 112], [41.75, 0.2479, 60, 112], [42.0, 1.4729, 62, 112], [43.5, 0.2479, 62, 112], [43.75, 0.2479, 60, 112], [44.0, 0.4979, 62, 112], [44.5, 0.2479, 64, 112], [44.75, 0.2479, 65, 112], [45.0, 2.2479, 67, 112], [47.25, 0.2479, 65, 112], [47.5, 0.2479, 64, 112], [47.75, 0.2479, 62, 112], [48.0, 0.4729, 60, 112], [48.5, 0.1562, 67, 112], [48.6667, 0.1562, 67, 109], [48.8333, 0.1562, 67, 106], [49.0, 0.2479, 67, 103], [49.5, 0.1562, 67, 93], [49.6667, 0.1562, 67, 90], [49.8333, 0.1562, 67, 87], [50.0, 0.2479, 67, 84], [50.5, 0.2479, 67, 74], [51.5, 0.1562, 67, 64], [51.6667, 0.1562, 67, 64], [51.8333, 0.1562, 67, 64], [52.0, 0.2479, 67, 64], [52.5, 0.1562, 67, 64], [52.6667, 0.1562, 67, 64], [52.8333, 0.1562, 67, 64], [53.0, 0.1562, 67, 64], [53.1667, 0.1562, 67, 64], [53.3333, 0.1562, 67, 64], [53.5, 0.1562, 67, 64], [53.6667, 0.1562, 67, 64], [53.8333, 0.1562, 67, 64]];
+            const B = [[0.0, 1.2479, 58, 126], [1.25, 0.2479, 57, 126], [1.5, 0.2479, 55, 126], [1.75, 0.2479, 53, 126], [2.0, 0.2479, 58, 126], [2.25, 0.2479, 60, 126], [2.5, 0.2479, 57, 126], [2.75, 0.2479, 55, 126], [3.0, 0.4979, 58, 126], [3.5, 0.2479, 57, 126], [3.75, 0.2479, 55, 126], [4.0, 0.9979, 58, 127], [5.0, 0.2479, 57, 126], [5.25, 0.2479, 58, 126], [5.5, 0.2479, 57, 126], [5.75, 1.4979, 55, 126], [7.25, 0.2479, 53, 126], [7.5, 0.2479, 52, 126], [7.75, 0.2479, 50, 126], [8.0, 1.9979, 52, 126], [10.5, 0.3313, 58, 126], [11.0, 0.3313, 60, 126], [11.5, 0.8313, 61, 126], [12.5, 0.6667, 61, 126], [13.5, 0.3313, 61, 126], [14.0, 0.3313, 61, 126], [14.5, 0.3313, 61, 126], [15.0, 0.3313, 61, 126], [15.3333, 0.3312, 61, 126], [15.6667, 0.3313, 61, 126], [16.0, 0.4979, 61, 127], [16.5, 0.2479, 60, 126], [16.75, 0.2479, 58, 126], [17.0, 0.4979, 61, 127], [17.5, 0.2479, 60, 126], [17.75, 0.2479, 58, 126], [18.0, 0.2479, 61, 126], [18.25, 0.2479, 60, 126], [18.5, 0.2479, 58, 126], [18.75, 0.2479, 56, 126], [19.0, 0.2479, 55, 127], [19.25, 0.2479, 53, 126], [19.5, 3.9979, 52, 126], [24.0, 1.4979, 50, 126], [25.5, 0.4979, 52, 126], [26.0, 0.2479, 50, 126], [26.25, 0.2479, 52, 126], [26.5, 1.4979, 53, 126], [28.0, 0.4979, 55, 126], [28.5, 0.4979, 56, 126], [29.0, 0.2208, 53, 126], [29.3333, 0.2208, 55, 126], [29.6667, 0.2208, 52, 126], [30.0, 0.2479, 50, 126], [30.25, 0.2479, 52, 126], [30.5, 0.2479, 50, 126], [30.75, 0.7479, 48, 126], [31.5, 1.7479, 46, 127], [33.25, 0.2479, 48, 126], [33.5, 0.2479, 46, 126], [33.75, 0.2479, 48, 126], [34.0, 0.2479, 50, 126], [34.25, 0.2479, 52, 126], [34.5, 0.2479, 50, 126], [34.75, 0.2479, 48, 126], [35.0, 0.2479, 50, 126], [35.25, 0.2479, 48, 126], [35.5, 0.2479, 46, 126], [35.75, 0.2479, 44, 126], [36.0, 0.2479, 46, 127], [36.25, 0.2479, 44, 126], [36.5, 0.9979, 43, 126], [37.5, 2.7479, 41, 126], [40.25, 0.2479, 43, 126], [40.5, 0.2479, 41, 126], [40.75, 2.2479, 39, 126], [43.0, 0.2479, 41, 126], [43.25, 0.2479, 39, 126], [43.5, 0.2479, 41, 126], [43.75, 2.4979, 37, 126], [46.25, 0.2479, 37, 126], [46.5, 0.2479, 39, 126], [46.75, 0.2479, 37, 126], [47.0, 0.2479, 41, 126], [47.25, 0.2479, 39, 126], [47.5, 0.2479, 37, 126], [47.75, 0.7479, 36, 126]];
+            const SNARE = [[0.0, 38, 80], [0.5, 38, 80], [0.6667, 38, 80], [0.8333, 38, 80], [1.0, 38, 80], [1.5, 38, 80], [1.6667, 38, 80], [1.8333, 38, 80], [2.0, 38, 80], [2.5, 38, 80], [3.0, 38, 80], [3.5, 38, 80], [3.6667, 38, 80], [3.8333, 38, 80], [4.0, 38, 80], [4.5, 38, 80], [4.6667, 38, 80], [4.8333, 38, 80], [5.0, 38, 80], [5.1667, 38, 80], [5.3333, 38, 80], [5.5, 38, 80], [5.6667, 38, 80], [5.8333, 38, 80], [6.0, 38, 80], [6.5, 38, 80], [6.6667, 38, 80], [6.8333, 38, 80], [7.0, 38, 80], [7.5, 38, 80], [7.6667, 38, 80], [7.8333, 38, 80], [8.0, 38, 80], [8.5, 38, 80], [9.0, 38, 80], [9.5, 38, 80], [9.6667, 38, 80], [9.8333, 38, 80], [10.0, 38, 80], [10.5, 38, 80], [10.6667, 38, 80], [10.8333, 38, 80], [11.0, 38, 80], [11.1667, 38, 80], [11.3333, 38, 80], [11.5, 38, 80], [11.6667, 38, 80], [11.8333, 38, 80], [12.0, 38, 80], [12.5, 38, 80], [12.6667, 38, 80], [12.8333, 38, 80], [13.0, 38, 80], [13.5, 38, 80], [13.6667, 38, 80], [13.8333, 38, 80], [14.0, 38, 80], [14.5, 38, 80], [15.0, 38, 80], [15.5, 38, 80], [15.6667, 38, 80], [15.8333, 38, 80], [16.0, 38, 80], [16.5, 38, 80], [16.6667, 38, 80], [16.8333, 38, 80], [17.0, 38, 80], [17.1667, 38, 80], [17.3333, 38, 80], [17.5, 38, 80], [17.6667, 38, 80], [17.8333, 38, 80], [18.0, 38, 80], [18.5, 38, 80], [18.6667, 38, 80], [18.8333, 38, 80], [19.0, 38, 80], [19.5, 38, 80], [19.6667, 38, 80], [19.8333, 38, 80], [20.0, 38, 80], [20.5, 38, 80], [21.0, 38, 80], [21.5, 38, 80], [21.6667, 38, 80], [21.8333, 38, 80], [22.0, 38, 80], [22.5, 38, 80], [22.6667, 38, 80], [22.8333, 38, 80], [23.0, 38, 80], [23.1667, 38, 80], [23.3333, 38, 80], [23.5, 38, 80], [23.6667, 38, 80], [23.8333, 38, 80], [24.0, 38, 80], [24.5, 38, 80], [24.6667, 38, 80], [24.8333, 38, 80], [25.0, 38, 80], [25.5, 38, 80], [25.6667, 38, 80], [25.8333, 38, 80], [26.0, 38, 80], [26.5, 38, 80], [27.0, 38, 80], [27.5, 38, 80], [27.6667, 38, 80], [27.8333, 38, 80], [28.0, 38, 80], [28.5, 38, 80], [28.6667, 38, 80], [28.8333, 38, 80], [29.0, 38, 80], [29.1667, 38, 80], [29.3333, 38, 80], [29.5, 38, 80], [29.6667, 38, 80], [29.8333, 38, 80], [30.0, 38, 80], [30.5, 38, 80], [30.6667, 38, 80], [30.8333, 38, 80], [31.0, 38, 80], [31.5, 38, 80], [31.6667, 38, 80], [31.8333, 38, 80], [32.0, 38, 80], [32.5, 38, 80], [33.0, 38, 80], [33.5, 38, 80], [33.6667, 38, 80], [33.8333, 38, 80], [34.0, 38, 80], [34.5, 38, 80], [34.6667, 38, 80], [34.8333, 38, 80], [35.0, 38, 80], [35.1667, 38, 80], [35.3333, 38, 80], [35.5, 38, 80], [35.6667, 38, 80], [35.8333, 38, 80], [36.0, 38, 80], [36.5, 38, 80], [36.6667, 38, 80], [36.8333, 38, 80], [37.0, 38, 80], [37.5, 38, 80], [37.6667, 38, 80], [37.8333, 38, 80], [38.0, 38, 80], [38.5, 38, 80], [39.0, 38, 80], [39.5, 38, 80], [39.6667, 38, 80], [39.8333, 38, 80], [40.0, 38, 80], [40.5, 38, 80], [40.6667, 38, 80], [40.8333, 38, 80], [41.0, 38, 80], [41.1667, 38, 80], [41.3333, 38, 80], [41.5, 38, 80], [41.6667, 38, 80], [41.8333, 38, 80], [42.0, 38, 80], [42.5, 38, 80], [42.6667, 38, 80], [42.8333, 38, 80], [43.0, 38, 80], [43.5, 38, 80], [43.6667, 38, 80], [43.8333, 38, 80], [44.0, 38, 80], [44.5, 38, 80], [45.0, 38, 80], [45.5, 38, 80], [45.6667, 38, 80], [45.8333, 38, 80], [46.0, 38, 80], [46.5, 38, 80], [46.6667, 38, 80], [46.8333, 38, 80], [47.0, 38, 80], [47.1667, 38, 80], [47.3333, 38, 80], [47.5, 38, 80], [47.6667, 38, 80], [47.8333, 38, 80], [48.0, 38, 80], [48.5, 38, 80], [48.6667, 38, 80], [48.8333, 38, 80], [49.0, 38, 80], [49.5, 38, 80], [49.6667, 38, 80], [49.8333, 38, 80], [50.0, 38, 80], [50.5, 38, 80], [51.0, 38, 80], [51.5, 38, 80], [51.6667, 38, 80], [51.8333, 38, 80], [52.0, 38, 80], [52.5, 38, 80], [52.6667, 38, 80], [52.8333, 38, 80], [53.0, 38, 80], [53.1667, 38, 80], [53.3333, 38, 80], [53.5, 38, 80], [53.6667, 38, 80], [53.8333, 38, 80]];
+            const sounds = {
+                flute: {label: 'Flute', wave: 'sine', gain: .12, cutoff: 6500}, clarinet: {label: 'Clarinet', wave: 'square', gain: .035, cutoff: 2100}, oboe: {label: 'Oboe', wave: 'sawtooth', gain: .028, cutoff: 2800}, bassoon: {label: 'Bassoon', wave: 'triangle', gain: .09, cutoff: 1200}, trumpet: {label: 'Trumpet', wave: 'sawtooth', gain: .035, cutoff: 2600}, horn: {label: 'French horn', wave: 'triangle', gain: .075, cutoff: 1800}, violin: {label: 'Violin', wave: 'sawtooth', gain: .025, cutoff: 2400}, cello: {label: 'Cello', wave: 'triangle', gain: .09, cutoff: 1200}, sax: {label: 'Alto sax', wave: 'sawtooth', gain: .035, cutoff: 2300}, piano: {label: 'Piano-like', wave: 'pluck', gain: .09, cutoff: 4000}, vibes: {label: 'Vibraphone', wave: 'pluck', gain: .07, cutoff: 5000}, synth: {label: 'Warm synth', wave: 'triangle', gain: .10, cutoff: 4000},
+                piccolo: {label: 'Piccolo', wave: 'sine', gain: .075, cutoff: 8500}, englishHorn: {label: 'English horn', wave: 'sawtooth', gain: .026, cutoff: 1900}, bassClarinet: {label: 'Bass clarinet', wave: 'square', gain: .026, cutoff: 950}, contrabassoon: {label: 'Contrabassoon', wave: 'triangle', gain: .065, cutoff: 650}, trombone: {label: 'Trombone', wave: 'sawtooth', gain: .026, cutoff: 1500}, tuba: {label: 'Tuba', wave: 'triangle', gain: .075, cutoff: 700}, euphonium: {label: 'Euphonium', wave: 'triangle', gain: .055, cutoff: 1050}, piccoloTrumpet: {label: 'Piccolo trumpet', wave: 'sawtooth', gain: .023, cutoff: 3400}, mutedTrumpet: {label: 'Muted trumpet', wave: 'square', gain: .022, cutoff: 1900}, viola: {label: 'Viola', wave: 'sawtooth', gain: .022, cutoff: 1850}, doubleBass: {label: 'Double bass', wave: 'triangle', gain: .075, cutoff: 600}, harp: {label: 'Harp', wave: 'pluck', gain: .075, cutoff: 5200}, marimba: {label: 'Marimba', wave: 'pluck', gain: .065, cutoff: 2800}, tubularBells: {label: 'Tubular bells', wave: 'sine', gain: .055, cutoff: 6000}, organ: {label: 'Pipe organ', wave: 'square', gain: .022, cutoff: 3200}, choir: {label: 'Choir pad', wave: 'sine', gain: .045, cutoff: 2400}, electricPiano: {label: 'Electric piano', wave: 'pluck', gain: .07, cutoff: 3600}, banjo: {label: 'Banjo', wave: 'pluck', gain: .06, cutoff: 6500}, accordion: {label: 'Accordion', wave: 'square', gain: .022, cutoff: 2200}, steelDrum: {label: 'Steel drum', wave: 'sine', gain: .065, cutoff: 5000}, bassSynth: {label: 'Deep bass synth', wave: 'triangle', gain: .075, cutoff: 500}
+            };
+            const SECTION = 54, INTRO = 6, BPM = 72, MAX_INSTRUMENTS = 12;
+            const beat = () => 60 / BPM, hz = n => 440 * Math.pow(2, (n - 69) / 12);
+            let audio = null, master = null, noiseBuffer = null, playing = false, sectionNo = 0, timer = null;
+            const gate = document.getElementById('gate'), status = document.getElementById('status');
+            function ensureAudio() {
+                if (!audio) {
+                    audio = new (window.AudioContext || window.webkitAudioContext)();
+                    master = audio.createGain(); master.gain.value = 3; master.connect(audio.destination);
+                    noiseBuffer = audio.createBuffer(1, audio.sampleRate, audio.sampleRate);
+                    const d = noiseBuffer.getChannelData(0); for (let i = 0; i < d.length; i++)d[i] = Math.random() * 2 - 1;
+                }
+                if (audio.state === 'suspended') audio.resume();
+            }
+            function env(g, t, dur, peak) {
+                dur = Math.max(.025, dur); g.gain.setValueAtTime(.0001, t);
+                g.gain.exponentialRampToValueAtTime(Math.max(.0001, peak), t + Math.min(.025, dur * .25));
+                g.gain.setValueAtTime(Math.max(.0001, peak), t + dur * .62);
+                g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+            }
+            function note(pitch, t, dur, sound, vel = 80) {
+                const peak = sound.gain * .48 * Math.max(.22, Math.min(1.15, vel / 90));
+                if (sound.wave === 'pluck') {
+                    const o = audio.createOscillator(), g = audio.createGain(); o.type = 'triangle';
+                    o.frequency.setValueAtTime(hz(pitch), t); g.gain.setValueAtTime(peak, t);
+                    g.gain.exponentialRampToValueAtTime(.0001, t + Math.max(.05, dur * 1.45));
+                    o.connect(g); g.connect(master); o.start(t); o.stop(t + dur * 1.55); return;
+                }
+                const o = audio.createOscillator(), f = audio.createBiquadFilter(), g = audio.createGain();
+                o.type = sound.wave; o.frequency.setValueAtTime(hz(pitch), t);
+                f.type = 'lowpass'; f.frequency.value = sound.cutoff; o.connect(f); f.connect(g); g.connect(master);
+                env(g, t, dur, peak); o.start(t); o.stop(t + dur + .025);
+            }
+            function snareHit(t, vel = 80) {
+                const src = audio.createBufferSource(), f = audio.createBiquadFilter(), g = audio.createGain();
+                src.buffer = noiseBuffer; f.type = 'bandpass'; f.frequency.value = 2600; f.Q.value = .65;
+                src.connect(f); f.connect(g); g.connect(master); env(g, t, .12, .024 * Math.max(.3, vel / 80));
+                src.start(t); src.stop(t + .14);
+            }
+            function scheduleBacking(start, durationBeats) {
+                const b = beat();
+                for (let shift = 0; shift < durationBeats; shift += SECTION) {
+                    for (const [at, p, v] of SNARE) {const pos = shift + at; if (pos < durationBeats) snareHit(start + pos * b, v);}
+                }
+                // Permanent three-beat vamp: bass tonic/dominant movement.
+                for (let i = 0; i < durationBeats; i++) {
+                    const p = (i % 3 === 0) ? 36 : (i % 3 === 1) ? 43 : 36;
+                    note(p, start + i * b, b * .72, {wave: 'triangle', gain: .075, cutoff: 520}, 72);
+                }
+            }
+            const accompPattern = [[0, 48], [.5, 55], [.667, 55], [.833, 55], [1, 43], [1.5, 50], [2, 48], [2.5, 55]];
+            function scheduleAccomp(start, ids) {
+                const b = beat();
+                for (let bar = 0; bar < 18; bar++) {
+                    const base = start + bar * 3 * b;
+                    for (const [off, pitch] of accompPattern) for (const id of ids) {
+                        const s = sounds[id]; note(pitch, base + off * b, b * (off % 1 === 0 ? .34 : .16), s, 52);
+                    }
+                }
+            }
+            function scheduleMelody(start, theme, ids) {
+                const b = beat(), data = theme === 'A' ? A : B;
+                for (const id of ids) {
+                    const s = sounds[id]; for (const [at, d, p, v] of data) {
+                        if (at < SECTION) note(p, start + at * b, Math.min(d, SECTION - at) * b * .9, s, v * .8);
+                    }
+                }
+            }
+            function scheduleSnareLayer(start, ids) {
+                const b = beat();
+                for (const [at, p, v] of SNARE) for (const id of ids) {
+                    const pitch = (id === 'bassoon' || id === 'cello' || id === 'contrabassoon' || id === 'tuba' || id === 'doubleBass' || id === 'bassSynth') ? 43 : 60;
+                    note(pitch, start + at * b, .095, sounds[id], Math.min(76, v * .62));
+                }
+            }
+            function shuffle(a) {
+                for (let i = a.length - 1; i > 0; i--) {const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]];}
+                return a;
+            }
+            function newArrangement() {
+                const ids = shuffle(Object.keys(sounds).slice());
+                const count = 3 + Math.floor(Math.random() * (MAX_INSTRUMENTS - 2)); // 3 through 12, at least one per part
+                arrangementCount = count;
+                const chosen = ids.slice(0, count);
+                const parts = {melody: [chosen[0]], accomp: [chosen[1]], snare: [chosen[2]]};
+                for (const id of chosen.slice(3)) parts[['melody', 'accomp', 'snare'][Math.floor(Math.random() * 3)]].push(id);
+                return parts;
+            }
+            let arrangement = null, arrangementCount = 0;
+            function runSection(start) {
+                if (!playing) return;
+                ensureAudio();
+                const theme = ['A', 'A', 'B', 'B'][sectionNo % 4];
+                arrangement = newArrangement();
+                const when = Math.max(audio.currentTime + .035, start);
+                scheduleBacking(when, SECTION);
+                scheduleMelody(when, theme, arrangement.melody);
+                scheduleAccomp(when, arrangement.accomp);
+                scheduleSnareLayer(when, arrangement.snare);
+                status.textContent = `${theme} ${sectionNo % 4 + 1}/4 · ${arrangementCount} instruments · melody ${arrangement.melody.length}, three-beat ${arrangement.accomp.length}, snare ${arrangement.snare.length}`;
+                const duration = SECTION * beat(), wall = performance.now() + Math.max(0, (when - audio.currentTime) * 1000);
+                const update = () => {
+                    if (!playing) return;
+                    const elapsed = (performance.now() - wall) / 1000;
+                    if (elapsed >= duration - .12) {sectionNo++; runSection(when + duration);}
+                    else timer = setTimeout(update, 80);
+                };
+                timer = setTimeout(update, 80);
+            }
+            function start() {
+                if (playing) return;
+                ensureAudio(); playing = true; sectionNo = 0; gate.classList.add('hidden');
+                const introStart = audio.currentTime + .08;
+                scheduleBacking(introStart, INTRO);
+                status.textContent = 'TWO-BAR INTRO · snare + vamp';
+                const wall = performance.now();
+                const introUpdate = () => {
+                    if (!playing) return;
+                    if ((performance.now() - wall) / 1000 >= INTRO * beat() - .04) runSection(introStart + INTRO * beat());
+                    else timer = setTimeout(introUpdate, 40);
+                };
+                timer = setTimeout(introUpdate, 40);
+            }
+            gate.addEventListener('click', start, {once: true});
+            gate.addEventListener('touchend', e => {e.preventDefault(); start();}, {once: true, passive: false});
+        })();
+    </script>
+</body>
+
+</html>
