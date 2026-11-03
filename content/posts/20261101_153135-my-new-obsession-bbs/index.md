@@ -1,5 +1,5 @@
 +++
-author = 'ogreload3d'
+author = 'dopagaki'
 date = '2026-11-01T15:31:39+09:00'
 draft = false
 title = '20261101_153135 The New Internet'

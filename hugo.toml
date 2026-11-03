@@ -1,12 +1,12 @@
-baseURL = 'https://ogreload3d.github.io/'
+baseURL = 'https://dopagaki.party'
 locale = 'en-us'
-title = "ogreload3d's cool page"
+title = "dopagaki.party blog"
 
 disableKinds = ["sitemap"]
 summaryLength = 1
 
 [params]
-  author = "ogreload3d"
+  author = "dopagaki"
   theme = 'light-pink'
   [params.read-more]
     length-limit = 0

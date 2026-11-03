@@ -1,5 +1,5 @@
 +++
-author = 'ogreload3d'
+author = 'dopagaki'
 date = '2026-11-03T08:55:30+09:00'
 draft = false
 title = '20261103_085526 The Paternity Leave'

@@ -1,5 +1,5 @@
 +++
-author = 'ogreload3d'
+author = 'dopagaki'
 date = '2026-09-27T10:47:20+09:00'
 draft = false
 title = '20260927_104715 Hugo Posting Rules'

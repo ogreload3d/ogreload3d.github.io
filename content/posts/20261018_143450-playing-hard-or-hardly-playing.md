@@ -1,5 +1,5 @@
 +++
-author = 'ogreload3d'
+author = 'dopagaki'
 date = '2026-10-18T14:34:52+09:00'
 draft = false
 title = '20261018_143450 Playing Hard or Hardly Playing?'

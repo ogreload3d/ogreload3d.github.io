@@ -1,5 +1,5 @@
 +++
-author = 'ogreload3d'
+author = 'dopagaki'
 date = '2026-09-26T17:25:17+09:00'
 draft = false
 title = '20260926_172516 Stuff I Learned Today'
