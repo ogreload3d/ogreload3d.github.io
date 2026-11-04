@@ -27,5 +27,5 @@ jobs:
           remote_path: ${{ secrets.HUGO_PATH }} # ex: /var/www/html/
           remote_host: ${{ secrets.DOPAGAKI_HOST }} # ex: example.com
           remote_port: ${{ secrets.DOPAGAKI_PORT }} # ex: 22
-          remote_user: ${{ secrets.REMOTE_USER }} # ex: ubuntu
+          remote_user: ${{ secrets.HUGO_USER }} # ex: ubuntu
           remote_key: ${{ secrets.HUGO_KEY }}
