@@ -1,0 +1,31 @@
+name: deploy to dopagaki
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup hugo
+        uses: peaceiris/actions-hugo@v3
+
+      - name: build
+        run: hugo --gc --minify --cleanDestinationDir
+
+      - name: rsync
+        uses: burnett01/rsync-deployments@v9
+        env:
+          switches: -avzr --delete
+          path: public/
+          remote_path: ${{ secrets.HUGO_PATH }} # ex: /var/www/html/
+          remote_host: ${{ secrets.DOPAGAKI_HOST }} # ex: example.com
+          remote_port: ${{ secrets.DOPAGAKI_PORT }} # ex: 22
+          remote_user: ${{ secrets.REMOTE_USER }} # ex: ubuntu
+          remote_key: ${{ secrets.HUGO_KEY }}
