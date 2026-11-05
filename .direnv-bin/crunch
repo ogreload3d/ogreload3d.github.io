@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -e
+
+input="$1"
+format="${2:-gif}"
+colors="${3:-32}"
+
+if [[ -z "$input" || ! -f "$input" ]]; then
+    echo "Usage: crunch input.jpg [gif|png] [colors]"
+    exit 1
+fi
+
+if [[ "$format" != "gif" && "$format" != "png" ]]; then
+    echo "Format must be gif or png"
+    exit 1
+fi
+
+filename="${input%.*}"
+output="${filename}_crunchy.${format}"
+
+if [[ "$format" == "gif" ]]; then
+    magick "$input" -auto-orient -resize '800x800>' \
+        -colors "$colors" -dither FloydSteinberg \
+        -strip -layers Optimize "$output"
+else
+    magick "$input" -auto-orient -resize '800x800>' \
+        -colors "$colors" -dither FloydSteinberg \
+        -depth 8 -strip "PNG8:$output"
+fi
+
+echo "Crunchified: $output ($(du -h "$output" | cut -f1))"

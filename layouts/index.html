@@ -135,7 +135,10 @@
             {{ with index $page.Params "ending-images" }}
             <div class="photosetx3">
                 {{ range first 3 . }}
-                <a href="{{ . }}" target="_blank"><img src="{{ . }}"></a>
+                {{ $img := $page.Resources.GetMatch . }}
+                {{ if $img }}
+                    <a href="{{ $img.RelPermalink }}" target="_blank"><img src="{{ $img.RelPermalink }}"></a>
+                {{ end }}
                 {{ end }}
             </div>
             {{ end }}

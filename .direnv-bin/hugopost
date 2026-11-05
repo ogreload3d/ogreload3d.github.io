@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+  echo "Usage: hugopost hello-my-post"
+  exit 1
+fi
+
+hugo new "posts/$(date +%Y%m%d_%H%M%S)-$1.md"
