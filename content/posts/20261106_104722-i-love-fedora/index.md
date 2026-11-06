@@ -4,8 +4,8 @@ date = '2026-11-06T10:47:22+09:00'
 draft = false
 title = '20261106_104722 I Love Fedora'
 tags = ['rawblog']
-title-images = ['df-h_crunchy.gif']
-ending-images = ['nvim_crunchy.gif']
+title-images = ['df-h_crunchy.gif','nvim_crunchy.gif']
+ending-images = []
 table-of-contents = true
 toc-auto-numbering = true
 +++
