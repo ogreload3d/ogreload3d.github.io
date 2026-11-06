@@ -2,7 +2,7 @@
 author = 'dopagaki'
 date = '2026-11-04T09:51:17+09:00'
 draft = false
-title = '20261104_095114 Always Be Posting'
+title = 'Always Be Posting'
 tags = ["all_posts"]
 title-images = ['always-be-posting.gif']
 ending-images = []

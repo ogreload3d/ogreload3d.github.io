@@ -2,7 +2,7 @@
 author = 'dopagaki'
 date = '2026-09-29T21:44:02+09:00'
 draft = false
-title = '20260929_214358 Howdy Howdy Night City!'
+title = 'Howdy Howdy Night City!'
 tags = ["all_posts"]
 title-images = ['1.gif']
 ending-images = []

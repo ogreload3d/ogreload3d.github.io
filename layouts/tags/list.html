@@ -4,7 +4,7 @@
     <ul>
         {{ range .Pages }}
         <li class="tag-item">
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <h2> <a href="{{ .RelPermalink }}">{{ .Title }} ({{ .Date.Format .Site.Params.Dateformat }})</a> </h2>
             <p> > {{ .Plain | safeHTML | truncate 250 }}</p>
         </li>
         {{ end }}

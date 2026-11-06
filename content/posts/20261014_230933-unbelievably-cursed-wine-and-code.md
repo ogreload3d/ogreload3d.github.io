@@ -2,7 +2,7 @@
 author = 'dopagaki'
 date = '2026-10-14T23:09:34+09:00'
 draft = false
-title = '20261014_230933 Unbelievably Cursed Wine and Code'
+title = 'Unbelievably Cursed Wine and Code'
 tags = ["all_posts", 'projects']
 title-images = []
 ending-images = []

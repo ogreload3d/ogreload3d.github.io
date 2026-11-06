@@ -2,7 +2,7 @@
 author = 'dopagaki'
 date = '2026-09-26T17:25:17+09:00'
 draft = false
-title = '20260926_172516 Stuff I Learned Today'
+title = 'Stuff I Learned Today'
 tags = ["all_posts"]
 title-images = []
 ending-images = []

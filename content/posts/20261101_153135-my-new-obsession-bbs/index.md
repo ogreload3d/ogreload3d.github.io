@@ -2,7 +2,7 @@
 author = 'dopagaki'
 date = '2026-11-01T15:31:39+09:00'
 draft = false
-title = '20261101_153135 The New Internet'
+title = 'The New Internet'
 tags = ["all_posts", 'essays']
 title-images = ['vortex.gif', 'vortexleaderboard.gif']
 ending-images = []

@@ -2,7 +2,7 @@
 author = 'dopagaki'
 date = '2026-10-18T14:34:52+09:00'
 draft = false
-title = '20261018_143450 Playing Hard or Hardly Playing?'
+title = 'Playing Hard or Hardly Playing?'
 tags = ["all_posts", "essays"]
 title-images = []
 ending-images = []

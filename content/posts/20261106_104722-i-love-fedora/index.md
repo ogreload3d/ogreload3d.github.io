@@ -2,7 +2,7 @@
 author = 'dopagaki'
 date = '2026-11-06T10:47:22+09:00'
 draft = false
-title = '20261106_104722 I Love Fedora'
+title = 'I Love Fedora'
 tags = ["all_posts"]
 title-images = ['df-h_crunchy.gif','nvim_crunchy.gif']
 ending-images = []

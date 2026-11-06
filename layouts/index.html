@@ -17,13 +17,13 @@
             <img class="flower" src="{{ index .Params "icon-path" }}">
             {{ end }}
         </div>
-        
+
         <div id="bio">
         {{ with .Site.GetPage "section" "/sidebar/bio.md" }}
             {{ .Content | safeHTML }}
         {{ end }}
         </div>
-        
+
         <div class="small-box">
             {{ with .Site.GetPage "section" "/sidebar/basic-info.md" }}
                 {{ .Content | safeHTML }}
@@ -50,7 +50,7 @@
         </div>
         {{ end }}
         {{ end }}
-        
+
         <nav class="links">
             <ul>
             {{ with .Site.GetPage "section" "/sidebar/_index.md" }}
@@ -89,20 +89,24 @@
     {{ $pages := where .Site.RegularPages "Section" "posts" }}
     {{ range $index, $page := (.Paginate $pages (or (index .Site.Params "posts-per-page") 5)).Pages }}
         <article id="post-{{ $index }}">
+          <!-- TOC button, not needed in Index IMO
             {{- if (index .Params "table-of-contents") }}
             <button id="post-toc-btn-{{ $index }}" class="dropbox-btn" onclick="toggleDropbox('post-toc-{{ $index }}')" >☰</button>
             <div id="post-toc-{{ $index }}" class="dropbox-content table-of-contents float">
                 {{ partial "toc.html" $page }}
             </div>
             {{ end }}
+          -->
             <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <!-- tags as well
             {{ $tags := $page.Params.tags }}
             tags:
             {{ range $index, $tag := .Params.tags }}
             <a href="{{ relLangURL (printf "/tags/%s" $tag) }}">{{ $tag }}</a>{{ if ne $index (sub ($tags | len) 1) }},{{ end }}
             {{ end }}
+          -->
             <div class="post-header">
-                @{{ $page.Params.author }} <span class="timestamp">{{ $page.Date.Format "02/01/2006" }}</span>
+                @{{ $page.Params.author }} <span class="timestamp">{{ $page.Date.Format .Site.Params.Dateformat }}</span>
             </div>
             <p>{{ .Summary }}</p>
             {{ with index $page.Params "title-images" }}
@@ -115,8 +119,15 @@
                 {{ end }}
             </div>
             {{ end }}
+            {{ if gt (sub (len (( $page.ContentWithoutSummary | safeHTML) | plainify)) 1) $limit }}
+              <div class="read-more-btn">
+                <a href="{{ .RelPermalink }}">Read more</a>
+              </div>
+            {{ else }}
+              <div class="full-content">{{ $page.ContentWithoutSummary | safeHTML }}</div>
+            {{ end }}
+            <!--
             <div class="post-content readmore">
-                <!-- subtracting one because of how truncate works -->
                 {{ if gt (sub (len (( $page.ContentWithoutSummary | safeHTML) | plainify)) 1) $limit }}
                 <div class="text-content">
                 {{- $truncated := ((.ContentWithoutSummary | safeHTML) | truncate $limit) -}}
@@ -142,9 +153,11 @@
                 {{ end }}
             </div>
             {{ end }}
+            -->
         </article>
     {{ end }}
-    {{ template "_internal/pagination.html" . }}
+    {{ partial "pagination.html" (dict "page" . "format" "terse") }}
+    <!--
     <script>
     window.addEventListener('click', e => {
         let dropboxs = document.getElementsByClassName("dropbox-content");
@@ -182,5 +195,6 @@
         dropbox.toggleAttribute("visible");
     }
     </script>
+    -->
     </main>
 {{ end }}

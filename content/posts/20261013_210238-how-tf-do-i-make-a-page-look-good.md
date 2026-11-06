@@ -2,7 +2,7 @@
 author = 'dopagaki'
 date = '2026-10-13T21:02:40+09:00'
 draft = false
-title = '20261013_210238 How TF Do I Make a Page Look Good'
+title = 'How TF Do I Make a Page Look Good'
 tags = ["all_posts"]
 title-images = []
 ending-images = []

@@ -8,6 +8,7 @@ summaryLength = 1
 [params]
   author = "dopagaki"
   theme = 'light-pink'
+  dateformat = '2006-01-02 15:04:05-0700'
   [params.sidebar.tags]
     enable = true
   [params.read-more]

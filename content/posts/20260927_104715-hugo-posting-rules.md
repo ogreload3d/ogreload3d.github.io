@@ -2,7 +2,7 @@
 author = 'dopagaki'
 date = '2026-09-27T10:47:20+09:00'
 draft = false
-title = '20260927_104715 Hugo Posting Rules'
+title = 'Hugo Posting Rules'
 tags = ["all_posts"]
 title-images = []
 ending-images = []
