@@ -1,6 +1,6 @@
 baseURL = 'https://dopagaki.party'
 locale = 'en-us'
-title = "dopagaki.party blog"
+title = "dopagaki.party"
 
 disableKinds = ["sitemap"]
 summaryLength = 1
@@ -8,6 +8,8 @@ summaryLength = 1
 [params]
   author = "dopagaki"
   theme = 'light-pink'
+  [params.sidebar.tags]
+    enable = true
   [params.read-more]
     length-limit = 0
     [params.read-more.text]
