@@ -12,9 +12,11 @@ toc-auto-numbering = true
 
 ## A big day for Programming!
 
-Anyway I can't believe I finally set up my own "bare metal" system here! It took me forever to just set up all the files, get all the alises etc. but man, we really did it.
+Anyway I can't believe I finally set up my own "bare metal" system here!
+It took me forever to just set up all the files, get all the alises etc.
+but man, we really did it.
 
-I'll put up some stuff I learned today, such as
+I'll put up some stuff I learned today, such as:
 
 ## How to set up your hugo to instantly post!!
 
@@ -22,17 +24,26 @@ I'll put up some stuff I learned today, such as
 alias hugopost='f() { hugo new posts/$(date +%Y%m%d_%H%M%S)-$1.md; }; f'
 ```
 
-this will allow you to create a post mega quick by just going like "hugopost my-cool-post" and it'll just do the rest. Amazing!
+this will allow you to create a post mega quick by just going like "hugopost my-cool-post" and it'll just do the rest.
+Amazing!
 
 ## neopost github is great, but you needa understand what's going on
 
-Then what else I found: [the neopost github repo is real good](https://github.com/salatine/neopost), but the `basic_info.md` is wrongly named in the sidebar folder. it should be `basic-info.md` !
+Then what else I found: [the neopost github repo is real good](https://github.com/salatine/neopost),
+but the `basic_info.md` is wrongly named in the sidebar folder.
+it should be `basic-info.md` !
 
-There are a bunch of other problems with that repo as well, such as you need to have a posts.md archetype. Plus it's like using the YAML settings while files are in TOML etc. It's kinda nuts, if I feel like it, I'll maybe open a PR but not day lol it's been a day.
+There are a bunch of other problems with that repo as well,
+such as you need to have a posts.md archetype.
+Plus it's like using the YAML settings while files are in TOML etc.
+It's kinda nuts, if I feel like it, I'll maybe open a PR but not day
+lol it's been a day.
 
 ## imagemagick ROCKS
 
-Also I got a new PFP here. Imagemagick came in CRACKED yo with all the dithering. In order to install imagemagick in WSL it was a bit bullshit:
+Also I got a new PFP here.
+Imagemagick came in CRACKED yo with all the dithering.
+In order to install imagemagick in WSL it was a bit bullshit:
 
 ```bash
 echo "=== 1. Updating system and installing dependencies ==="
@@ -71,7 +82,10 @@ But then you can do shit like
 ```bash
 magick pfp2.png -resize 500x500\> -ordered-dither o4x4 -level 10%,70% -colors 16 pfp3.gif
 ```
-and it'll crunch up your files REAL good. If I find any cool crunchers I'll do it more.
+and it'll crunch up your files REAL good.
+If I find any cool crunchers I'll do it more.
 
-Anyway I hope you enjoyed this cool post! Did a whole bunch of coding instead of browsing Reddit or 4chan like a dweeb!
-Plus this is like the longest I have written before I let AI take the wheel. Man, work SUCKS but thank god machines will do it all FOR me so I can STAY IN MEETINGS more!
+Anyway I hope you enjoyed this cool post! Did a whole bunch of
+coding instead of browsing Reddit or 4chan like a dweeb!
+Plus this is like the longest I have written before I let AI take the wheel.
+Man, work SUCKS but thank god machines will do it all FOR me so I can STAY IN MEETINGS more!

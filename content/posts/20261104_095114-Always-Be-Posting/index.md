@@ -12,14 +12,107 @@ toc-auto-numbering = true
 
 ## Always Be Posting
 
-I used to be a "romance novel" author y'know, and I was a professional. That's because I had sold at least 1 copy of my romance smut and received royalties for it. But I kept this part of my life as a secret, because I was kind of ashamed. Y'know, it's kinda embarrassing to say "I'm a romance novelist," since we all know what kind of romance it's heavily leaning towards. I don't know, I didn't really connect with writing smut or sci-fi, or even smutty sci-fi. But this blog is different. I guess it's just the connection of two things that I like: I can write, and Github Actions will automatically sync with 3 different servers at the same time once I push to master. I'm soooooooooo proud of it dude, you can't imagine. Yesterday I finally set up my own VPS and domain names (that's right white boy! I'm now an owner of TWO domains. [dopagaki.party](https://dopagaki.party) and [mesugaki.party](https://mesugaki.party) for the next 3 years. If I hit big, I'll extend the registration for the next 100 years or so, because the .party domains are like 5 dollars a year!). And I just HAD to post everybody I know at 1 AM that my blog has now a new home lol. Of course I'll keep the legacy parts up as they are, it's always good to have back-ups.
+I used to be a "romance novel" author y'know, and I was a professional.
+That's because I had sold at least 1 copy of my romance smut and
+received royalties for it.
+But I kept this part of my life as a secret, because I was kind of ashamed.
+Y'know, it's kinda embarrassing to say "I'm a romance novelist,"
+since we all know what kind of romance it's heavily leaning towards.
+I don't know, I didn't really connect with writing smut or sci-fi,
+or even smutty sci-fi.
 
-Back in Estonia I didn't have much very supportive friends and they were kinda asses about stuff. I mean they were great to hang out with, but the emotional support part was a bit lacking. To be fair we were also in our 20s, that's not really the time to have any kind of emotional intelligence lol. But now it's different, here in Japan I feel I got much more supportive friends. Maybe it's because I myself have become more emotionally intelligent? I don't know lol. I guess it's also the point that, knock on wood, I have the means to do the things I like rather than worry about whether the next financial setback would put me back YEARS of labor or not. Of course I do worry that this gravy train will end, but right now this entire blog setup I got is costing me like 12 bucks a month. That's about half of my gym subscription! So yeah, at least this hobby I got isn't a huge money sink for now.
+But this blog is different.
+I guess it's just the connection of two things that I like: I can write,
+and Github Actions will automatically sync with
+3 different servers at the same time once I push to master.
+I'm soooooooooo proud of it dude, you can't imagine.
 
-I guess the other part of why I am feeling so free to post all the time is that the infrastructure and tools I got are much more "advanced" than what I had back in the 2010s. Remember Blogspot? Wordpress? They were slow, lumbering pieces of shit back then, they're pieces of shit now. I guess the big thing here is that I got the fear of rejection: when I push my stuff into somebody, then they can go like wow this sucks, or wow this is great. My biggest fear is that I post something, and I get fucking banned for posting cringe lol. But now this fear has gone away: who the fuck is gonna ban me for posting on my own website, that I set up, that I pay for? I guess in that case it would be the government or the VPS provider, but hey, I'd take it as a badge of honor that I got somebody malding so bad with text that they felt the need to put a bullet in my head or a metaphorical one in the blog. Now THAT would definitely get me a wikipedia page fr! Don't worry, I'm not gonna host any unsavory things here despite owning the mesugaki.party domain ([I registered it only because it's PROVOCATIVE okay, it gets the people going](https://www.youtube.com/watch?v=RlwlV4hcBac)), all my stuff will be STRICTLY PG-13. That doesn't mean you can just put your kid here and let him read my blog and hope he'll come through it the same way he went in, but I'm saying that if my kid would read my blog, he would say "wow dad this shit is cringe" on a bad day rather than "wow dad this shit is gross, and should be illegal."
+Yesterday I finally set up my own VPS and domain names.
+That's right white boy! I'm now an owner of TWO domains.
+[dopagaki.party](https://dopagaki.party)
+and [mesugaki.party](https://mesugaki.party) for the next 3 years.
 
-All you need to write these blogs is hours of tinkering, reading docs (believe me dude, how can you tell the difference between  slop and an actual project? Read the fucking manual). I'm not anti-AI either, since it can help you just get over some hump really quick. But it definitely takes away the learning opportunity when you are not paying attention.
+If I hit big, I'll extend the registration for the next 100 years or so,
+because the .party domains are like 5 dollars a year!).
+And I just HAD to post everybody I know at 1 AM that my blog has now a new home lol.
+Of course I'll keep the legacy parts up as they are, it's always good to have back-ups.
 
-Anyway I wrote a big ass list of THINGS I WANNA PROGRAM TODAY. Guess how much I did that: freaking zilch. I went walking with the stroller, talked with my wife about which rice cooker to buy (an entire hour, I ended up conceding and agreeing to get whatever she wanted), idk bathed the child, then fed the child (whatever times)... chilled for an hour..
+Back in Estonia I didn't have much very supportive friends and they were kinda asses about stuff.
+I mean they were great to hang out with, but the emotional support part was a bit lacking.
+To be fair we were also in our 20s,
+that's not really the time to have any kind of emotional intelligence lol.
+But now it's different, here in Japan I feel I got much more supportive friends.
+Maybe it's because I myself have become more emotionally intelligent?
+I don't know lol.
 
-I now got some "free time" but the baby's getting hungry! Oh well, I guess it's one of those days where you do what you can, rather than what you want LOL
+I guess it's also the point that, knock on wood, I have the means
+to do the things I like rather than worry about
+whether the next financial setback would
+put me back YEARS of labor or not.
+
+Of course I do worry that this gravy train will end,
+but right now this entire blog setup
+I got is costing me like 12 bucks a month.
+That's about half of my gym subscription!
+So yeah, at least this hobby I got isn't a huge money sink for now.
+
+I guess the other part of why I am feeling so free to post all the
+time is that the infrastructure and tools
+I got are much more "advanced" than what I had back in the 2010s.
+
+Remember Blogspot? Wordpress?
+They were slow, lumbering pieces of shit back then,
+they're pieces of shit now.
+
+I guess the big thing here is that I got the fear of rejection:
+when I push my stuff into somebody,
+then they can go like wow this sucks, or wow this is great.
+
+My biggest fear is that I post something,
+and I get fucking banned for posting cringe lol.
+But now this fear has gone away:
+who the fuck is gonna ban me for posting on my own website,
+that I set up, that I pay for?
+I guess in that case it would be the government or the VPS provider,
+but hey, I'd take it as a badge of honor
+that I got somebody malding so bad with text
+that they felt the need to put a bullet in my head
+or a metaphorical one in the blog.
+Now THAT would definitely get me a wikipedia page fr!
+
+Don't worry, I'm not gonna host any unsavory things here
+despite owning the mesugaki.party domain
+[I registered it only because it's PROVOCATIVE okay, it gets the people going](https://www.youtube.com/watch?v=RlwlV4hcBac),
+all my stuff will be STRICTLY PG-13.
+
+That doesn't mean you can just put your kid here and
+let him read my blog and hope he'll come through it the same way he went in,
+but I'm saying that if my kid would read my blog,
+he would say "wow dad this shit is cringe"
+on a bad day rather than "wow dad this shit is gross, and should be illegal."
+
+All you need to write these blogs is hours of tinkering,
+and also reading docs.
+
+How can you tell the
+difference between slop and an actual project?
+Read the fucking manual.
+
+I'm not anti-AI either, since
+it can help you just get over some hump really quick.
+But it definitely takes away the
+learning opportunity when you are not paying attention.
+
+Anyway I wrote a big ass list of THINGS I WANNA PROGRAM TODAY.
+Guess how much I did that: freaking zilch.
+I went walking with the stroller,
+talked with my wife about which rice cooker to buy...
+We spent an entire hour,
+I ended up conceding and agreeing to get whatever she wanted,
+idk bathed the child, then fed the child (whatever times)...
+
+chilled for an hour..
+
+I now got some "free time" but the baby's getting hungry!
+Oh well, I guess it's one of those days where you do what you can,
+rather than what you want LOL
