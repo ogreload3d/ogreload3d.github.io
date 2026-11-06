@@ -13,7 +13,7 @@ toc-auto-numbering = true
 ## I love Fedora
 
 Here in my garage, just typing out on my new Fedora setup here.
-It's fun to write up here in the Azabu-Juban Hills.
+It's fun to write up here in the Azabudai Hills.
 But you know what I like more than an efficient OS? KNOWLEDGE!
 In fact I'm proud of that Fedora is using just a fraction of the memory on the SSD
 and RAM that Windows would need to run a Start bar!
