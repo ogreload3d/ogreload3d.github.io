@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source .env
+
+echo "Building hugo page"
+hugo --minify
+
+echo "Deploying to VPS..."
+echo ${REMOTE_HOST}
+echo ${VPS_TARGET_PATH}
+rsync -avz --delete \
+    public/ \
+    "${REMOTE_HOST}:${VPS_TARGET_PATH}"
+
+echo "Deployment complete!"
