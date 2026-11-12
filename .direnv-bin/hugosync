@@ -9,7 +9,7 @@ hugo --minify
 echo "Deploying to VPS..."
 echo ${REMOTE_HOST}
 echo ${VPS_TARGET_PATH}
-rsync -avz --delete \
+rsync -avz \
     public/ \
     "${REMOTE_HOST}:${VPS_TARGET_PATH}"
 
