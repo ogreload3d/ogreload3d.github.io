@@ -7,6 +7,6 @@ list:
   name: "Join the BBS today!"
   items:
     - "telnet: dopagaki.party:8888"
-    - "ssh: coming soon!"
-    - "BBS IS STILL IN PROGRESS :)"
+    - "ssh: dopagaki.party:2026"
+    - "ssh: new/new for creating new member!"
 ---
